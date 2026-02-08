@@ -1,0 +1,66 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "properties": {
+    "alumne": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/alumne"
+      }
+    },
+    "professor": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/professor"
+      }
+    }
+  },
+  "required": ["alumne", "professor"],
+  "definitions": {
+    "alumne": {
+      "type": "object",
+      "properties": {
+        "id": { "type": "integer" },
+        "nom": { "type": "string" },
+        "llinatjes": { "type": "string" },
+        "data_naixement": { "type": "string" },
+        "correu": { "type": "string" },
+        "telefon": { "type": "string" },
+        "adreça": { "type": "string" },
+        "fecha_matricula": { "type": "string" },
+        "curs": { "type": "string", "enum": ["DAM", "DAW", "ASIX", "SMX", "SEIA", "ER", "AUT"] }
+      },
+      "required": ["id", "nom", "llinatjes", "fecha_matricula", "curs"]
+    },
+    "professor": {
+      "type": "object",
+      "properties": {
+        "id": { "type": "integer" },
+        "nom": { "type": "string" },
+        "llinatjes": { "type": "string" },
+        "data_naixement": { "type": "string" },
+        "correu": { "type": "string" },
+        "telefon": { "type": "string" },
+        "adreça": { "type": "string" },
+        "data_incorporación": { "type": "string" },
+        "departamento": { "type": "string", "enum": ["Informàtica", "Electricitat", "Automoció"] },
+        "asignatura": {
+          "type": "array",
+          "items": { "$ref": "#/definitions/asignatura" }
+        }
+      },
+      "required": ["id", "nom", "llinatjes", "data_incorporación", "departamento"]
+    },
+    "asignatura": {
+      "type": "object",
+      "properties": {
+        "id_asignatura": { "type": "integer" },
+        "nom_asignatura": { "type": "string" },
+        "ciclo": { "type": "string", "enum": ["DAM", "DAW", "ASIX", "SMX", "SEIA", "ER", "AUT"] },
+        "data_inici": { "type": "string" },
+        "data_final": { "type": "string" }
+      },
+      "required": ["id_asignatura", "nom_asignatura", "ciclo"]
+    }
+  }
+}

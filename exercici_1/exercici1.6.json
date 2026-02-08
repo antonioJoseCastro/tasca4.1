@@ -1,0 +1,28 @@
+{
+  "$schema": "./exercici1.5.json",
+  "alumne": [
+    {
+      "id": 1,
+      "nom": "Joan",
+      "llinatjes": "Garcia",
+      "fecha_matricula": "2023-09-01",
+      "curs": "DAM"
+    }
+  ],
+  "professor": [
+    {
+      "id": 101,
+      "nom": "Maria",
+      "llinatjes": "Sastre",
+      "data_incorporación": "2020-09-01",
+      "departamento": "Informàtica",
+      "asignatura": [
+        {
+          "id_asignatura": 501,
+          "nom_asignatura": "Programació",
+          "ciclo": "DAM"
+        }
+      ]
+    }
+  ]
+}

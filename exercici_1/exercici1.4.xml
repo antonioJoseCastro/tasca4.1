@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cifp xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="exercici1.3.xsd">
+  <alumne id="2">
+    <nom>Marta</nom>
+    <llinatjes>Sola</llinatjes>
+    <fecha_matricula>2023-09-01</fecha_matricula>
+    <curs>DAW</curs>
+  </alumne>
+  <professor id="102">
+    <nom>Pere</nom>
+    <llinatjes>Marti</llinatjes>
+    <data_incorporación>2015-09-01</data_incorporación>
+    <departamento>Electricitat</departamento>
+    <asignatura id_asignatura="601">
+      <nom_asignatura ciclo="ER">Muntatge</nom_asignatura>
+    </asignatura>
+  </professor>
+</cifp>

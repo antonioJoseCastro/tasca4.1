@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE cifp [
+<!ELEMENT cifp (alumne*, professor*)>
+<!ELEMENT alumne (nom, llinatjes, data_naixement?, correu?, telefon?, adreça?, fecha_matricula, curs)>
+<!ATTLIST alumne id CDATA #REQUIRED>
+<!ELEMENT professor (nom, llinatjes, data_naixement?, correu?, telefon?, adreça?, data_incorporación, departamento, asignatura*)>
+<!ATTLIST professor id CDATA #REQUIRED>
+
+<!ELEMENT nom (#PCDATA)>
+<!ELEMENT llinatjes (#PCDATA)>
+<!ELEMENT data_naixement (#PCDATA)>
+<!ELEMENT correu (#PCDATA)>
+<!ELEMENT telefon (#PCDATA)>
+<!ELEMENT adreça (#PCDATA)>
+<!ELEMENT fecha_matricula (#PCDATA)>
+<!ELEMENT curs (#PCDATA)>
+<!ELEMENT data_incorporación (#PCDATA)>
+<!ELEMENT departamento (#PCDATA)>
+
+<!ELEMENT asignatura (nom_asignatura, data_inici?, data_final?)>
+<!ATTLIST asignatura id_asignatura CDATA #REQUIRED>
+<!ELEMENT nom_asignatura (#PCDATA)>
+<!ATTLIST nom_asignatura ciclo (DAM|DAW|ASIX|SMX|SEIA|ER|AUT) #REQUIRED>
+<!ELEMENT data_inici (#PCDATA)>
+<!ELEMENT data_final (#PCDATA)>
+]>
+<cifp>
+  <alumne id="1">
+    <nom>Pep</nom>
+    <llinatjes>Costa</llinatjes>
+    <data_naixement>2000-01-01</data_naixement>
+    <correu>pep@cifp.cat</correu>
+    <fecha_matricula>2024-09-01</fecha_matricula>
+    <curs>DAM</curs>
+  </alumne>
+  <professor id="100">
+    <nom>Anna</nom>
+    <llinatjes>Vives</llinatjes>
+    <data_incorporación>2010-09-01</data_incorporación>
+    <departamento>Informàtica</departamento>
+    <asignatura id_asignatura="501">
+      <nom_asignatura ciclo="DAM">Programació</nom_asignatura>
+      <data_inici>2024-09-15</data_inici>
+      <data_final>2025-06-20</data_final>
+    </asignatura>
+  </professor>
+</cifp>

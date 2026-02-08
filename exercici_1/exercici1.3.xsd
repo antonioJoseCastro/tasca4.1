@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+<!-- Tipos simples personalizados (`simpleType`) 
+para las enumeraciones de tipo de curso -> CursType`-->
+  <xs:simpleType name="CursType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="DAM"/>
+      <xs:enumeration value="DAW"/>
+      <xs:enumeration value="ASIX"/>
+      <xs:enumeration value="SMX"/>
+      <xs:enumeration value="SEIA"/>
+      <xs:enumeration value="ER"/>
+      <xs:enumeration value="AUT"/>
+    </xs:restriction>
+  </xs:simpleType>
+<!-- enumeraciones de tipo de departamento -> `DepartamentType`  -->
+  <xs:simpleType name="DepartamentType">
+    <!--Restrincción de los valores permitidos con `xs:enumeration`.-->
+    <xs:restriction base="xs:string"> 
+      <xs:enumeration value="Informàtica"/>
+      <xs:enumeration value="Electricitat"/>
+      <xs:enumeration value="Automoció"/>  
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="cifp">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="alumne" minOccurs="0" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence>
+            <!--Se aprovechan los tipos de datos fuertes de XSD, asignando `xs:string` a los elementos de texto.-->
+              <xs:element name="nom" type="xs:string"/>
+              <xs:element name="llinatjes" type="xs:string"/>
+              <xs:element name="data_naixement" type="xs:string" minOccurs="0"/>
+              <xs:element name="correu" type="xs:string" minOccurs="0"/>
+              <xs:element name="telefon" type="xs:string" minOccurs="0"/>
+              <xs:element name="adreça" type="xs:string" minOccurs="0"/>
+              <xs:element name="fecha_matricula" type="xs:string"/>
+              <xs:element name="curs" type="CursType"/>
+            </xs:sequence>
+            <!--Se aprovechan los tipos de datos fuertes de XSD, asignando `xs:integer` a los atributos ID .-->
+            <xs:attribute name="id" type="xs:integer" use="required"/>
+          </xs:complexType>
+        </xs:element>
+        <!--Además, se controla el orden mediante `minOccurs='0'` para los campos opcionales, 
+             como la fecha de nacimiento o el teléfono, 
+             y `maxOccurs='unbounded'` para las listas." -->
+        <xs:element name="professor" minOccurs="0" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="nom" type="xs:string"/>
+              <xs:element name="llinatjes" type="xs:string"/>
+              <xs:element name="data_naixement" type="xs:string" minOccurs="0"/>
+              <xs:element name="correu" type="xs:string" minOccurs="0"/>
+              <xs:element name="telefon" type="xs:string" minOccurs="0"/>
+              <xs:element name="adreça" type="xs:string" minOccurs="0"/>
+              <xs:element name="data_incorporación" type="xs:string"/>
+              <xs:element name="departamento" type="DepartamentType"/>
+              <xs:element name="asignatura" minOccurs="0" maxOccurs="unbounded">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="nom_asignatura">
+                      <xs:complexType>
+                        <xs:simpleContent>
+                          <xs:extension base="xs:string">
+                            <xs:attribute name="ciclo" type="CursType" use="required"/>
+                          </xs:extension>
+                        </xs:simpleContent>
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element name="data_inici" type="xs:string" minOccurs="0"/>
+                    <xs:element name="data_final" type="xs:string" minOccurs="0"/>
+                  </xs:sequence>
+                  <xs:attribute name="id_asignatura" type="xs:integer" use="required"/>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+            <xs:attribute name="id" type="xs:integer" use="required"/>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

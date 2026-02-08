@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE cifp SYSTEM "exercici1.1.dtd">
+<cifp>
+  <alumne id="1">
+    <nom>Pep</nom>
+    <llinatjes>Costa</llinatjes>
+    <data_naixement>2000-01-01</data_naixement>
+    <correu>pep@cifp.cat</correu>
+    <fecha_matricula>2024-09-01</fecha_matricula>
+    <curs>DAM</curs>
+  </alumne>
+  <professor id="100">
+    <nom>Anna</nom>
+    <llinatjes>Vives</llinatjes>
+    <data_incorporación>2010-09-01</data_incorporación>
+    <departamento>Informàtica</departamento>
+    <asignatura id_asignatura="501">
+      <nom_asignatura ciclo="DAM">Programació</nom_asignatura>
+      <data_inici>2024-09-15</data_inici>
+      <data_final>2025-06-20</data_final>
+    </asignatura>
+  </professor>
+</cifp>
